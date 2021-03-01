@@ -1,12 +1,11 @@
 .CardHolder {
-  display: flex;
-  margin-top: 15rem;
-  margin-left: 30rem;
+  display: inline-flex;
+  margin-top: 1%;
+  margin-left: 1%;
 }
 .Cards {
   padding:2rem;
   justify-items: center;
-  
   border:1px solid #333;
   box-shadow: 1px 1px 3px #333;
 }
