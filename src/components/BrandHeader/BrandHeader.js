@@ -4,7 +4,7 @@ import "./BrandHeader.css";
 function BrandHeader({ children }){
   return (
     <header>
-      <Brand title="Mi App con react."></Brand>
+      <Brand title="Login"></Brand>
       <NavBar></NavBar>
     </header>
   );

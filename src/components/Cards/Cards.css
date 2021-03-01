@@ -1,10 +1,12 @@
 .CardHolder {
   display: flex;
-  justify-content: space-between;
+  margin-top: 15rem;
+  margin-left: 30rem;
 }
 .Cards {
-  padding:1rem;
-  margin: 1rem;
+  padding:2rem;
+  justify-items: center;
+  
   border:1px solid #333;
   box-shadow: 1px 1px 3px #333;
 }
