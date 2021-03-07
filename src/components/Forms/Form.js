@@ -1,7 +1,6 @@
-import './Form.css'
 function Form({children}){
   return (
-    <form className="Form">
+    <form className="w-64 h-45 px-4 border text-center mt-20">
         {children}
     </form>
   );
