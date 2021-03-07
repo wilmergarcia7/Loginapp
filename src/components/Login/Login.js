@@ -24,6 +24,7 @@ function Login(){
   }
   return (
     <Form>
+      <h1><b>Ingresar</b></h1>
       <FormField
         type="text"
         id="username"
@@ -51,7 +52,7 @@ function Login(){
             e.preventDefault();
             e.stopPropagation();
             const { username, password } = formData;
-            alert(`Usuario:${username} Psswd:${password}`);
+            alert(`Usuario: ${username} Psswd: ${password}`);
           }
         }
       >
