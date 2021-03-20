@@ -5,6 +5,7 @@ function NavBar() {
     { label: "Home", uri: "/" },
     { label: "Todo's", uri: "/todos" },
     { label: "Login", uri: "/login" },
+    { label: "Covid", uri: "/covid" },
   ];
   let navBarItems = dummyData.map((o, i)=>{
     return (
