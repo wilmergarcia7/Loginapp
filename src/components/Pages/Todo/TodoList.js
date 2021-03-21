@@ -18,7 +18,11 @@ function TodoListItem({descripcion, id, fb_id, completed, doneHandler, deleteHan
     <MdDelete onClick={onDeleteClick}></MdDelete>
   </li>);
 }
+
+
+
 function TodoList({todos, doneHandler, deleteHandler}){
+  
   const todoItems = todos.map((o)=>{
     return (
       <TodoListItem
@@ -31,7 +35,9 @@ function TodoList({todos, doneHandler, deleteHandler}){
         deleteHandler={deleteHandler}
       />
     )
+    
   });
+
   return (
     <section className="TodoList">
       <ul>

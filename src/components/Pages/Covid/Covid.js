@@ -1,31 +1,98 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 
 import getCountryCodeTotal from './CovidApi';
+import NewCovid from "./NewCovid";
 
+import firebaseSDK from '../../../FireBaseInit';
+import CovidReport from './CovidReport';
 function Covid (){
-    console.log("aaygcfioerudhnocujhaq")
+
+    const [covidData, setCovidData] = useState({newCovids:[], covidsNews:""});
+  //  const [error, setError] = useState(false);
+      
   useEffect(
       
     function(){
       getCountryCodeTotal(
         (err, data)=>{
+
           if(err){
             console.log(err);
           } else {
-            console.log(data);
+            let NewDataCovid = {
+              datos: data[0],
+              id: new Date().getTime()
+            };
+            firebaseSDK.database().ref('covid').push(NewDataCovid);
+            
+           
+              
           }
-        }
+
+            
+          }
+        
       )
+      const covidRef = firebaseSDK.database().ref('covid').orderByKey().limitToLast(100);
+            
+      covidRef.on('value', (snapshot)=>{
+      const fb_CovidData = snapshot.val();
+      const newCovidss = [];
+      
+      for(let fb_id in fb_CovidData){
+        newCovidss.push({...fb_CovidData[fb_id],fb_id});
+        
+      }
+      setCovidData({...covidData,newCovids: newCovidss});
+    });
+    
+    return ()=>{
+      console.log("UnMounting");
+      covidRef.off();
     }
+    }
+
     ,[]
   );
+  
 
   
   return (
-    <h1>COVID PAGE</h1>
+    <section>
+  <CovidReport
+    covidDat={covidData.newCovids}
     
-  );
+  >
+  </CovidReport>
+  </section>
+  
+);
+  
 }
 
 
 export default Covid;
+/*
+onst onAddNew = (e) =>{
+  let NewDataCovid = {
+    datos: covidData.newCovids[0]['data'][0],
+    id: new Date().getTime()
+  };
+  firebaseSDK.database().ref('covid').push(NewDataCovid);
+  }*/
+
+/*const getCoviDatos = async () => {
+      try{
+        const response = await getCountryCodeTotal;
+        console.log(response.data)
+        setCovid(response.data)
+      } catch(error){
+        setError(true);
+      }
+    };
+
+    
+    useEffect(()=>{
+      getCoviDatos()
+    },[])
+    */

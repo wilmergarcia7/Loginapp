@@ -24,31 +24,7 @@ function Todo(){
         setTodoData({...todoData, todos: newTodos});
 
       });
-      // todosRef.on('child_added', (snapshot) => {
-      //   let newTodo = { ...snapshot.val(), fb_id: snapshot.key };
-      //   let newTodos = todoData.todos;
-      //   newTodos.push(newTodo);
-      //   setTodoData({...todoData, todos: newTodos, waiting:false});
-      // });
-      // todosRef.on('child_removed', (snapshot)=>{
-      //   const deletedKey = snapshot.key;
-      //   let newTodos = todoData.todos.filter(o=>{
-      //     return o.fb_id !==deletedKey;
-      //   });
-      //   setTodoData({ ...todoData, todos: newTodos, waiting:false});
-      // });
-      // todosRef.on('child_changed', (snapshot) => {
-      //   const changedKey = snapshot.key;
-      //   const data = snapshot.val();
-      //   let newTodos = todoData.todos.map(o => {
-      //     if (o.fb_id == changedKey) {
-      //       o = {...data, fb_id:changedKey};
-      //     }
-      //     return o;
-      //   });
-      //   console.log(newTodos);
-      //   setTodoData({ ...todoData, todos: newTodos, waiting: false });
-      // });
+
       return ()=>{
         console.log("UnMounting");
         todosRef.off();
@@ -76,6 +52,8 @@ function Todo(){
     setTodoData({todos:newTodos, newTodo: ""});
     */
   }
+
+  
   const doneHandler = (id)=>{
     const ref = firebaseSDK.database().ref("todos")
     const fbTodo = ref.child(id);
