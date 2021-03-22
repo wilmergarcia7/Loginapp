@@ -22,7 +22,7 @@ function TodoListItem({descripcion, id, fb_id, completed, doneHandler, deleteHan
 
 
 function TodoList({todos, doneHandler, deleteHandler}){
-  
+
   const todoItems = todos.map((o)=>{
     return (
       <TodoListItem

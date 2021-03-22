@@ -3,10 +3,10 @@ import axios from "axios";
 const options = {
   method: 'GET',
   url: 'https://covid-19-data.p.rapidapi.com/country/code',
-  params: {code: 'hn'},
+  params: {code: 'bz'},
   headers: {
-    'x-rapidapi-key': '',
-    'x-rapidapi-host': ''
+    'x-rapidapi-key': process.env.REACT_APP_RAPIAPI_API_KEY,
+    'x-rapidapi-host': process.env.REACT_APP_RAPIAPI_API_HOST
   }
 };
 

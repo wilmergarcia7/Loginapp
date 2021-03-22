@@ -12,27 +12,7 @@ function Covid (){
       
   useEffect(
       
-    function(){
-      getCountryCodeTotal(
-        (err, data)=>{
-
-          if(err){
-            console.log(err);
-          } else {
-            let NewDataCovid = {
-              datos: data[0],
-              id: new Date().getTime()
-            };
-            firebaseSDK.database().ref('covid').push(NewDataCovid);
-            
-           
-              
-          }
-
-            
-          }
-        
-      )
+    ()=>{
       const covidRef = firebaseSDK.database().ref('covid').orderByKey().limitToLast(100);
             
       covidRef.on('value', (snapshot)=>{
@@ -45,6 +25,26 @@ function Covid (){
       }
       setCovidData({...covidData,newCovids: newCovidss});
     });
+
+
+      getCountryCodeTotal(
+        (err, data)=>{
+
+          if(err){
+            console.log(err);
+          } else {
+           
+            firebaseSDK.database().ref('covid').push(data[0]);
+            
+           
+              
+          }
+
+            
+          }
+        
+      )
+      
     
     return ()=>{
       console.log("UnMounting");
