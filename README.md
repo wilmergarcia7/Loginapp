@@ -15,6 +15,8 @@ debemos mostrar la información que se sube a la base de datos en firebase.
 * Usar Tailwind css con el cli para crear un css optimizado
 * Usar todas las utilidades de tailwind css para **Design System**
 * Generar componentes con Handlebars con layouts y parciales
+* Utilizar como base de datos Firebase
+* Utilizar un api externo en este caso de rapidapi
 
 ## Instalación
   1. Descargar el repositorio o clonarlo
